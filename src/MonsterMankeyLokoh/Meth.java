@@ -1,7 +1,7 @@
 package MonsterMankeyLokoh;
 
 public class Meth {
-    public final float PI = 3.1415926535F;
+    public static final float PI = 3.1415926535F;
     public Meth(){}
     public static int Sum(int ...numbers) {
         int sum = 0;
