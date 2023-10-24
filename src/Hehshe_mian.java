@@ -6,6 +6,5 @@ public class Hehshe_mian {
         Hashe h = new Hashe();
         HashTable t = new HashTable(1, 10);
         t.Populate(1234567, 50000000);
-        System.out.println(h.LoremIpsumDolorSitAmet(89));
     }
 }
