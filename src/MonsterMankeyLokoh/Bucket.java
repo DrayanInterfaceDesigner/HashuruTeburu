@@ -8,7 +8,10 @@ public class Bucket {
     public void Add(int n) {
         tree.insert(new Registry(n));
     }
-    public void Search(int n) {
+    public Registry Search(int n) {
+        return tree.search(n);
+    }
+    public void Remove(int n) {
         tree.remove(n);
     }
 }

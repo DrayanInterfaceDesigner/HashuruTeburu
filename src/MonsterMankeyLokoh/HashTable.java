@@ -21,12 +21,10 @@ public class HashTable {
         }
     }
 
-    public void Search(int value) {
-        // Lucca
-
+    public Registry Search(int value) {
         int index = this.hasher.hashIt(value);
-        // Testar isOccupied, se estiver, continue.
-        // Acessar this.table[index] e usar o método "Search".
+        if(!this.isOccupied(index)) return null;
+        return this.table[index].Search(value);
     }
 
     public void Remove(int value) {
