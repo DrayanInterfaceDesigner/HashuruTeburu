@@ -5,19 +5,20 @@ import java.util.Random;
 public class HashTable {
     private Bucket[] table;
     private Hash hasher;
+    private int[] keysToSearch = new int[5];
     public HashTable(int hashType, int size) {
         this.table = new Bucket[size];
-        this.hasher = new Hash(hashType);
+        this.hasher = new Hash(hashType, size);
     }
 
-    public void Add(int value) {
-        int index = this.hasher.hashIt(value);
+    public void Add(int key, int value) {
+        int index = this.hasher.hashIt(key);
         if(isOccupied(index)) {
-            this.table[index].Add(value);
+            this.table[index].Add(key, value);
         }
         else {
             this.table[index] = new Bucket();
-            this.table[index].Add(value);
+            this.table[index].Add(key, value);
         }
     }
 
@@ -38,12 +39,24 @@ public class HashTable {
     // Populates the hashing table
     public void Populate(long seed, long size) {
         Random rand = new Random(seed);
-        for(int x = 0; x < size; x++)
-            this.Add(rand.nextInt(900000000) + 100000000);
+        int acc = 0;
+        for(int x = 0; x < size; x++) {
+            int key = (rand.nextInt(900000000) + 100000000);
+            this.Add(key, rand.nextInt());
+
+            if(acc < 5) {
+                this.keysToSearch[acc] = key;
+                acc++;
+            }
+        }
     }
 
     // Tests if a cell of the table is already occupied
     public boolean isOccupied(int index) {
         return !(this.table[index] == null);
+    }
+
+    public int[] getKeysToSearch() {
+        return keysToSearch;
     }
 }

@@ -2,8 +2,10 @@ package MonsterMankeyLokoh;
 
 public class Hash {
     private int hashType;
-    public Hash(int hashType) {
+    private int hashMax;
+    public Hash(int hashType, int hashMax) {
         this.hashType = hashType;
+        this.hashMax = hashMax;
     }
 
     public int hashIt(int value) {
@@ -21,14 +23,14 @@ public class Hash {
     }
 
     public int Multiplication(int value) {
-        return value % 1000;
+        return value % hashMax;
     }
 
     public int Mod(int value) {
-        return value % 1000;
+        return value % hashMax;
     }
 
     public int Perfect(int value) {
-        return value % 1000;
+        return value % hashMax;
     }
 }

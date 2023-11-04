@@ -12,8 +12,8 @@ public class BinaryTree {
     public void remove(int value) {
         this.__delete__(this.root, value);
     }
-    public Registry search(int value) {
-        return __search__(this.root, value).getValue();
+    public Registry search(int key) {
+        return __search__(this.root, key).getValue();
     }
 
     public void watchTree() {
@@ -66,17 +66,17 @@ public class BinaryTree {
         return root;
     }
     // Search algorithm
-    private Node __search__(Node root, int value) {
+    private Node __search__(Node root, int key) {
         // curr root is null, return null
         if(root == null) return null;
         // value is equals to the curr root value
-        if(root.getValue().getValue() == value) {
+        if(root.getValue().getKey() == key) {
             return root;
         }
         // else, test val < root -> l || r
-        if(value < root.getValue().getValue())
-            return __search__(root.getLeft(), value);
-        else return __search__(root.getRight(), value);
+        if(key < root.getValue().getValue())
+            return __search__(root.getLeft(), key);
+        else return __search__(root.getRight(), key);
     }
 
     private Node __findLesserNode__(Node base) {

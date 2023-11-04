@@ -5,8 +5,8 @@ public class Bucket {
     public Bucket() {
         tree = new BinaryTree();
     }
-    public void Add(int n) {
-        tree.insert(new Registry(n));
+    public void Add(int key, int value) {
+        tree.insert(new Registry(key, value));
     }
     public Registry Search(int n) {
         return tree.search(n);
