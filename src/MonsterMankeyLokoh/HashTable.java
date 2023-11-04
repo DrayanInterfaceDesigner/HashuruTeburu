@@ -6,6 +6,7 @@ public class HashTable {
     private Bucket[] table;
     private Hash hasher;
     private int[] keysToSearch = new int[5];
+    private int collisions = 0;
     public HashTable(int hashType, int size) {
         this.table = new Bucket[size];
         this.hasher = new Hash(hashType, size);
@@ -15,6 +16,7 @@ public class HashTable {
         int index = this.hasher.hashIt(key);
         if(isOccupied(index)) {
             this.table[index].Add(key, value);
+            this.collisions++;
         }
         else {
             this.table[index] = new Bucket();
@@ -58,5 +60,9 @@ public class HashTable {
 
     public int[] getKeysToSearch() {
         return keysToSearch;
+    }
+
+    public int getCollisions() {
+        return collisions;
     }
 }

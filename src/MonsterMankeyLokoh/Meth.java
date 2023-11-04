@@ -118,6 +118,11 @@ public class Meth {
         return this.__Sqrt__(value, nextGuess);
     }
 
+    public static int Abs(int value){
+        if(value < 0) return value * -1;
+        return value;
+    }
+
     public static long Abs(long value){
         if(value < 0) return value * -1;
         return value;
