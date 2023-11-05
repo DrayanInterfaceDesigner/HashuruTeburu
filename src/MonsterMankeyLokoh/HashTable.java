@@ -34,8 +34,11 @@ public class HashTable {
         // Milena
 
         int index = this.hasher.hashIt(value);
-        // Testar isOccupied, se estiver, continue.
+        // Testar isoccupied, se estiver, continue.
         // Acessar this.table[index] e usar o método "Remove".
+        if(isOccupied(index) != null) {
+            return this.table[index].Remove(value);
+        }
     }
 
     // Populates the hashing table
